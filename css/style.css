@@ -29,6 +29,7 @@
 }
 
 /*=============== BASE ===============*/
+/* 
 *,
 *::before,
 *::after {
@@ -67,7 +68,7 @@ a {
 .container {
   max-width: 360px;
   padding: 4.8rem 2.4rem;
-}
+} */
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 /* .grid {
