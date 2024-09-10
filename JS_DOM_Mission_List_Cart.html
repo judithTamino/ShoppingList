@@ -17,29 +17,75 @@
 </head>
 
 <body>
-  <div class="list container">
-      <h1 class="list-title">Shopping <br> List</h1>
+  <div class="container">
+    <!-- <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div> -->
 
-    <div class="list-summary grid grid--2-cols">
-      <p class="list-total">
-        Products (<span id="total-qty">0</span>)
-      </p>
-      <p class="list-total">
-        Total: $<span id="total-price">0</span>
-      </p>
+    <!-- </div> -->
+    <div class="shopping-list">
+      <h1>
+        Shopping List
+        <img src="images/groceries.png" alt="groceries image">
+      </h1>
+
+      <div class="summary">
+        <div class="summary-total">
+          items (<span id="total-qty">0</span>)
+        </div>
+        <div class="summary-total">
+          total: $<span id="total-price">0</span>
+        </div>
+      </div>
+
+      <div class="items">
+        <div class="input-group">
+          <input type="text" id="name" class="item-input" required>
+          <label>item</label>
+        </div>
+
+        <div class="input-group">
+          <input type="number" id="quantity-number" class="item-input" required>
+          <label>quantity</label>
+          <!--  -->
+          <select id="quantity-txt" class="item-input">
+            <option value="g">g</option>
+            <option value="kg">kg</option>
+            <option value=" packets">packets</option>
+            <option value=" cans">cans</option>
+            <option value=" bottles">bottles</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <input type="number" id="price" class="item-input" required>
+          <label>price</label>
+        </div>
+
+        <a href="#" class="btn" onclick="addProduct()">
+          <i class="ri-add-line"></i>
+        </a>
+      </div>
     </div>
 
-    <div class="list-content grid">
+
+    <!-- <div class="list-content grid">
       <div class="input-group">
-        <label for="product-input--name">product name:</label>
         <input type="text" id="product-input--name" class="product-input">
+        <label for="product-input--name" class="input-label">name</label>
       </div>
 
       <div class="input-group">
+        <input type="number" id="product-input--price" class="product-input">
+        <label for="product-input--price" class="input-label">price</label>
+      </div>
+
+      <div class="input-group grid grid--2-cols">
         <div class="input-group--quantity-number">
-          <label for="product-input--qty">product quantity:</label>
           <input type="number" id="product-input--qty" class="product-input" min="1">
+          <label for="product-input--qty" class="input-label">quantity</label>
         </div>
+
         <div class="input-group--quantity-name">
           <select id="product-input--qty-name" class="product-input">
             <option value="g">g</option>
@@ -51,36 +97,28 @@
         </div>
       </div>
 
-      <div class="input-group">
-        <label for="product-input--price">product price:</label>
-        <input type="number" id="product-input--price" class="product-input">
-      </div>
-
       <a href="#" class="btn add-btn" onclick="addProduct()">
         <i class="ri-add-line"></i>
       </a>
-    </div>
+    </div> -->
 
-    <table class="list-products">
-      <!-- <div class="product">
-        <div class="product-data">
-          <div class="grid grid--2-cols">
-            <span class="product-name">Chocolate</span>
-            <span class="product-qty">200g</span>
-          </div>
-          <span class="product-price">$2</span>
-        </div>
-
-        <div class="btn-edit--container grid grid--2-cols">
-          <a href="#" class="btn btn-check">
+    <!-- <table class="list-products">
+      <tr class="product">
+        <td>
+          <div class="product-description"><span class="product-name">milk</span><span class="product-qty"> | 2
+              bottles</span></div>
+          <p class="product-price">$20</p>
+        </td>
+        <td class="product-edit">
+          <a href="#" class="btn btn-check" onclick="checkProduct()">
             <i class="ri-check-line"></i>
           </a>
           <a href="#" class="btn btn-delete">
             <i class="ri-delete-bin-line"></i>
           </a>
-        </div>
-      </div> -->
-    </table>
+        </td>
+      </tr>
+    </table> -->
   </div>
 
   <script src="js/app.js"></script>
