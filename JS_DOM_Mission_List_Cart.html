@@ -18,11 +18,9 @@
 
 <body>
   <div class="container">
-    <!-- <div class="circle circle1"></div>
     <div class="circle circle2"></div>
-    <div class="circle circle3"></div> -->
+    <div class="circle circle1"></div>
 
-    <!-- </div> -->
     <div class="shopping-list">
       <h1>
         Shopping List
@@ -38,14 +36,14 @@
         </div>
       </div>
 
-      <div class="items">
+      <form class="add-item grid">
         <div class="input-group">
-          <input type="text" id="name" class="item-input" required>
+          <input type="text" id="name" class="item-input" placeholder="" required>
           <label>item</label>
         </div>
 
-        <div class="input-group">
-          <input type="number" id="quantity-number" class="item-input" required>
+        <div class="input-group grid grid--2-cols">
+          <input type="number" id="quantity-number" class="item-input" placeholder="" required>
           <label>quantity</label>
           <!--  -->
           <select id="quantity-txt" class="item-input">
@@ -58,67 +56,69 @@
         </div>
 
         <div class="input-group">
-          <input type="number" id="price" class="item-input" required>
+          <input type="number" id="price" class="item-input" placeholder="" required>
           <label>price</label>
         </div>
 
-        <a href="#" class="btn" onclick="addProduct()">
-          <i class="ri-add-line"></i>
-        </a>
-      </div>
+        <button class="btn" onclick="addProduct()">
+          <span class="btn-txt">Add Item</span>
+          <span class="btn-icon"><i class="ri-add-line"></i></span>
+        </button>
+      </form>
+
+      <ul class="display-items">
+        <li>
+          <div class="item-description">
+            <span>wine</span> | 
+            <span>2 bottles</span>
+            <p>$12</p>
+          </div>
+
+          <div class="item-edit">
+            <a href="#" class="btn-check">
+              <i class="ri-check-line"></i>
+            </a>
+            <a href="#" class="btn-delete">
+              <i class="ri-delete-bin-line"></i>
+            </a>
+          </div>
+        </li>
+
+        <li>
+          <div class="item-description">
+            <span>chocolate</span> | 
+            <span>2g</span>
+            <p>$2</p>
+          </div>
+
+          <div class="item-edit">
+            <a href="#" class="btn-check">
+              <i class="ri-check-line"></i>
+            </a>
+            <a href="#" class="btn-delete">
+              <i class="ri-delete-bin-line"></i>
+            </a>
+          </div>
+        </li>
+
+        <li>
+          <div class="item-description">
+            <span>popcorn</span> | 
+            <span>250g</span>
+            <p>$10</p>
+          </div>
+
+          <div div class="item-edit">
+            <a href="#" class="btn-check">
+              <i class="ri-check-line"></i>
+            </a>
+            <a href="#" class="btn-delete">
+              <i class="ri-delete-bin-line"></i>
+            </a>
+          </div>
+        </li>
+      </ul>
     </div>
-
-
-    <!-- <div class="list-content grid">
-      <div class="input-group">
-        <input type="text" id="product-input--name" class="product-input">
-        <label for="product-input--name" class="input-label">name</label>
-      </div>
-
-      <div class="input-group">
-        <input type="number" id="product-input--price" class="product-input">
-        <label for="product-input--price" class="input-label">price</label>
-      </div>
-
-      <div class="input-group grid grid--2-cols">
-        <div class="input-group--quantity-number">
-          <input type="number" id="product-input--qty" class="product-input" min="1">
-          <label for="product-input--qty" class="input-label">quantity</label>
-        </div>
-
-        <div class="input-group--quantity-name">
-          <select id="product-input--qty-name" class="product-input">
-            <option value="g">g</option>
-            <option value="kg">kg</option>
-            <option value=" packets">packets</option>
-            <option value=" cans">cans</option>
-            <option value=" bottles">bottles</option>
-          </select>
-        </div>
-      </div>
-
-      <a href="#" class="btn add-btn" onclick="addProduct()">
-        <i class="ri-add-line"></i>
-      </a>
-    </div> -->
-
-    <!-- <table class="list-products">
-      <tr class="product">
-        <td>
-          <div class="product-description"><span class="product-name">milk</span><span class="product-qty"> | 2
-              bottles</span></div>
-          <p class="product-price">$20</p>
-        </td>
-        <td class="product-edit">
-          <a href="#" class="btn btn-check" onclick="checkProduct()">
-            <i class="ri-check-line"></i>
-          </a>
-          <a href="#" class="btn btn-delete">
-            <i class="ri-delete-bin-line"></i>
-          </a>
-        </td>
-      </tr>
-    </table> -->
   </div>
 
   <script src="js/app.js"></script>

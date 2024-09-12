@@ -64,15 +64,16 @@ button {
 }
 
 a {
+  display: inline-block;
   text-decoration: none;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  background-image: url("/images/wave_background.svg");
+  /* 16 / 24 / 32 / 48 / 64 / 80 */
   width: 100%;
   min-height: 100vh;
-  padding: 4.8rem 2.4rem;
+  padding: 3.2rem 2.4rem;
   overflow: hidden;
 }
 
@@ -84,31 +85,9 @@ a {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.grid--3-cols {
-  grid-template-columns: repeat(3, 1fr);
-}
 
 /*=============== SHOPPING LIST ===============*/
-/* .circle{
-  position: absolute;
-  width: 250px;
-  height: 250px;
-}
-
-.circle1 {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #05D8F0;
-  border-radius: 23% 77% 18% 82% / 71% 30% 70% 29% ;
-}
-
-.circle2 {
-  top:0;
-  left: 0;
-  background: #9EF0F0;
-  border-radius: 74% 26% 18% 82% / 71% 30% 70% 29%;
-}
+/* 
 
 .circle3 {
   bottom: 0;
@@ -117,20 +96,39 @@ a {
   border-radius: 88% 12% 35% 65% / 44% 11% 89% 56%;
 } */
 
+.circle {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+}
+
+.circle1 {
+  top: 0;
+  left: 0;
+  background: var(--second-color);
+  border-radius: 23% 77% 18% 82% / 71% 30% 70% 29%;
+}
+
+.circle2 {
+  bottom: 0;
+  right: 0;
+  background: hsl(186, 73%, 78%);
+  border-radius: 74% 26% 18% 82% / 71% 30% 70% 29%;
+}
+
 .shopping-list {
   position: relative;
-  /* 32 / 48 / 64 / 80 */
   width: 100%;
   max-width: 540px;
   background: linear-gradient(130deg,
-      rgba(251, 251, 254, .6),
-      rgba(251, 251, 254, .2));
-  box-shadow: inset 2px 2px 1px rgba(251, 251, 254, .3),
-    inset -2px -2px 1px rgba(251, 251, 254, .2);
-  margin: 9.6rem auto 2.4rem;
+      hsla(240, 60%, 99%, 0.6),
+      hsla(240, 60%, 99%, 0.2));
+  box-shadow: inset 2px 2px 1px hsla(240, 60%, 99%, 0.3),
+    inset -2px -2px 1px hsla(240, 60%, 99%, 0.2);
+  margin: 3.2rem auto 2.4rem;
   padding: 4.8rem 3.2rem 8rem;
   border-radius: 1rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(40px);
 }
 
 .shopping-list h1 {
@@ -140,7 +138,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.6rem;
   gap: 1rem;
 }
 
@@ -152,81 +150,156 @@ a {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 4.8rem;
+  margin-bottom: 3.2rem;
 }
 
 .summary span {
   color: var(--first-color);
   font-weight: var(--font-semi-bold);
 }
-/* .list {
-  overflow: hidden;
-  background: linear-gradient(130deg,
-      rgba(251, 251, 254, .6),
-      rgba(251, 251, 254, .2));
-  box-shadow: inset 2px 2px 1px rgba(251, 251, 254, .3),
-    inset -2px -2px 1px rgba(251, 251, 254, .2);
-  border-radius: 2.4rem;
-  backdrop-filter: blur(10px);
-}
 
-.list-title {
-  font-size: var(--h1-font-size);
-  font-weight: var(--font-medium);
-  color: var(--title-color);
-  margin-bottom: 1.2rem;
-  line-height: 1;
-}
-
-.list-summary {
-  font-size: var(--small-font-size);
-  margin-bottom: 3.6rem;
-}
-
-.list-content {
-  grid-template-columns: 2fr 1fr;
-  row-gap: 1.6rem;
+.add-item {
+  grid-template-columns: 1fr 2fr;
+  gap: .8rem;
 }
 
 .input-group {
   position: relative;
-}
-
-.input-group label {
-  position: absolute;
-  left: 5%;
-  top: .8rem;
-  display: block;
-  margin-left: auto;
-  padding: 0 .25rem;
   font-size: var(--smaller-font-size);
-  transition: .3s;
 }
 
-.product-input {
+.input-group:nth-child(2) {
+  gap: .4rem;
+}
+
+.input-group select {
+  padding: .8rem .2rem .8rem .4rem;
+  font-size: var(--small-font-size);
+}
+
+.item-input {
   width: 100%;
-  height: 35px;
-  border: 2px solid var(--border-color);
+  padding: .4rem .4rem 1.2rem .8rem;
+  border: 1px solid var(--border-color);
   border-radius: .5rem;
-  padding-inline: .4rem;
-} */
+}
 
-/*Input focus move up label*/
-/* .product-input:focus+.input-label {
-  top: -1.2rem;
-  left: 0;
-  color: var(--first-color);
-} */
+.item-input+label {
+  position: absolute;
+  left: 1rem;
+  top: 1.6rem;
+  cursor: text;
+  transition: all .3s ease;
+}
 
-/*Input focus sticky top label*/
-/* .product-input:not(:placeholder-shown).product-input:not(:focus) + .input-label {
-  top: -1.2rem;
-  left: 0;
+.item-input:focus+label {
+  top: 2rem;
+  font-size: var(--smaller-font-size);
+}
+
+.item-input:not(:placeholder-shown).item-input:not(:focus)+label {
+  top: 2rem;
+  font-size: var(--smaller-font-size);
+}
+
+.btn {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: var(--first-color);
+  color: var(--body-color);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.btn, .btn-txt, .btn-icon {
+  transition: all .3s;
+}
+
+.btn-txt {
+  transform: translateX(1rem);
+  font-weight: var(--font-semi-bold);
+}
+
+.btn-icon {
+  position: absolute;
+  transform: translateX(120px);
+  height: 100%;
+  width: 40px;
+  background-color: #3e3b99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon i {
+  font-size: var(--h1-font-size);
+}
+
+.btn:hover {
+  background-color: #3e3b99;
+}
+
+.btn:hover .btn-txt {
+  color: transparent;
+}
+
+.btn:hover .btn-icon {
+  width: 100%;
+  transform: translateX(0);
+}
+
+.display-items {
+  margin-top: 1.6rem;
+}
+
+.display-items li {
+  position: relative;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  padding-left: 3.2rem;
+}
+
+.display-items li::before {
+  content: "";
+  top: .5rem;
+  left: .8rem;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-image: url("/images/uncheck.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.display-items li:last-child {
+  margin-bottom: 0;
+}
+
+.item-description span:first-child {
+  color: var(--title-color);
   font-weight: var(--font-medium);
-  color: var(--first-color);
-} */
+  text-transform: capitalize;
+}
 
-/*Input focus*/
-/* .product-input:focus {
-  border: 1px solid var(--first-color);
-} */
+.item-description p {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.item-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.item-edit a {
+
+}
