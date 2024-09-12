@@ -1,64 +1,50 @@
-// const inputProductName = document.getElementById("product-input--name");
-// const inputProductQuantity = document.getElementById("product-input--qty"),
-//   inputProductQuantityName = document.getElementById("product-input--qty-name");
-// const inputProductPrice = document.getElementById("product-input--price");
-// const productsList = document.querySelector(".list-products");
+/*=============== SUMMARY ===============*/
+const totalQty = document.getElementById("total-qty");
+const totalPrice = document.getElementById("total-price");
 
-// const addProduct = () => {
-//   // create tr element
-//   const tr = document.createElement("tr");
-//   tr.className = "product";
+/*=============== DISPLAY ITEMS ===============*/
+const displayItems = document.querySelector(".display-items");
 
-//   addProdactData(tr);
-//   addProductEdit(tr);
-//   productsList.appendChild(tr);
-// }
+/*=============== ADD ITEMS ===============*/
+// VARIABLES
+const itemName = document.getElementById("name");
+const qtyNumber = document.getElementById("quantity-number");
+const qtyTxt = document.getElementById("quantity-txt");
+const price = document.getElementById("price");
 
-// addProdactData = (tr) => {
-//   const productTd = document.createElement("td");
+function addItem() {
+  const li = document.createElement("li");
 
-//   // div element that display the name and the amount of the product
-//   const productDescription = document.createElement("div");
-//   productDescription.className = "product-description";
+  // display the name, quantity and the price of the item
+  const itemDesription = document.createElement("div");
+  itemDesription.innerHTML = `
+    <span>${itemName.value}</span> | 
+    <span>${qtyNumber.value}${qtyTxt.value}</span>
+    <p>$${price.value}</p>`;
 
-//   // add product name to the list
-//   const productName = document.createElement("span");
-//   productName.className = "product-name";
-//   productName.innerText = inputProductName.value;
-//   productDescription.appendChild(productName);
+  // display delete button
+  const itemEdit = document.createElement("div");
+  itemEdit.innerHTML = `
+    <a href="#" class="btn-delete">
+      <i class="ri-delete-bin-line"></i>
+    </a>
+  `;
 
+  // add class name to the new element for style
+  itemDesription.className = "item-description";
+  itemEdit.className = "item-edit";
 
-//   // add product quantity to the list
-//   const productQuantity = document.createElement("span");
-//   productQuantity.classList = "product-qty";
-//   productQuantity.innerText = ` | ${inputProductQuantity.value}${inputProductQuantityName.value}`;
-//   productDescription.appendChild(productQuantity);
+  li.appendChild(itemDesription);
+  li.appendChild(itemEdit);
+  displayItems.appendChild(li);
 
-//   // add product price to the list
-//   const productPrice = document.createElement("p");
-//   productPrice.className = "product-price";
-//   productPrice.innerText = `$${inputProductPrice.value}`;
+  clearInput();
+}
 
-//   productTd.appendChild(productDescription);
-//   productTd.appendChild(productPrice);
-//   tr.appendChild(productTd);
-// }
+function clearInput() {
+  itemName.value = "";
+  qtyNumber.value = "";
+  qtyTxt.value = "g";
+  price.value = "";
+}
 
-// addProductEdit = tr => {
-//   const productEdit = document.createElement("td");
-//   productEdit.className = "product-edit";
-
-//   // add task done btn
-//   productEdit.innerHTML = `
-//   <a href="#" class="btn btn-check" onclick="checkProduct()">
-//       <i class="ri-check-line"></i>
-//   </a>`;
-
-//   // add delete product btn
-//   productEdit.innerHTML += `
-//       <a href="#" class="btn btn-delete">
-//             <i class="ri-delete-bin-line"></i>
-//           </a>`;
-
-//   tr.appendChild(productEdit);
-// }
