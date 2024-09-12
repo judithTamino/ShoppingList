@@ -14,7 +14,7 @@
   --second-color: hsl(186, 96%, 48%);
   --body-color: hsl(242, 42%, 91%);
   --title-color: hsl(242, 10%, 12%);
-  --text-color: hsl(242, 10%, 38%);
+  --text-color: hsl(243, 10%, 38%);
   --border-color: hsl(242, 9%, 87%);
   /*========== font and typography ==========*/
   --body-font: 'Poppins', sans-serif;
@@ -70,10 +70,11 @@ a {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  /* 16 / 24 / 32 / 48 / 64 / 80 */
   width: 100%;
   min-height: 100vh;
-  padding: 3.2rem 2.4rem;
+  display: flex;
+  align-items: center;
+  padding-inline: 2.4rem;
   overflow: hidden;
 }
 
@@ -119,7 +120,7 @@ a {
 .shopping-list {
   position: relative;
   width: 100%;
-  max-width: 540px;
+  max-width: 360px;
   background: linear-gradient(130deg,
       hsla(240, 60%, 99%, 0.6),
       hsla(240, 60%, 99%, 0.2));
@@ -202,12 +203,14 @@ a {
   font-size: var(--smaller-font-size);
 }
 
+/* ADD BUTTON */
 .btn {
   position: relative;
   width: 100%;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: var(--first-color);
   color: var(--body-color);
   border-radius: .5rem;
@@ -215,7 +218,7 @@ a {
 }
 
 .btn, .btn-txt, .btn-icon {
-  transition: all .3s;
+  transition: all .3s ease;
 }
 
 .btn-txt {
@@ -225,7 +228,7 @@ a {
 
 .btn-icon {
   position: absolute;
-  transform: translateX(120px);
+  right: 0;
   height: 100%;
   width: 40px;
   background-color: #3e3b99;
@@ -293,13 +296,26 @@ a {
   font-weight: var(--font-semi-bold);
 }
 
-.item-edit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.2rem;
+/* style checked list */
+.display-items li.checked,
+.display-items .checked>.item-description span:first-child {
+  color: hsl(244, 6%, 56%);
+  text-decoration: line-through;
 }
 
+.display-items li.checked::before {
+  background-image: url("/images/check.png");
+}
+ 
+/* DELETE BTN */
 .item-edit a {
-
+  transform: scale(1.2);
+  color: var(--text-color);
+  transition: all .2s linear;
 }
+
+.item-edit a:hover {
+  transform: scale(1.5);
+  color: hsl(0, 65%, 48%);
+}
+
